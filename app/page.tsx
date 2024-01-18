@@ -39,7 +39,7 @@ export default function Home() {
     router.push("/login");
   };
 
-  if (!movies.data) {
+  if (movies.data.length === 0) {
     return (
       <main className="flex flex-col bg-background-color h-full h-screen justify-between">
         <div className="flex h-full flex-col items-center justify-center p-10">
@@ -49,7 +49,7 @@ export default function Home() {
                 Your movie list is empty
               </h1>
             </div>
-            <div className="flex justify-end gap-2">
+            <Link href="/create" className="flex justify-end gap-2">
               <Button
                 className="w-full bg-button-background-color text-button-foreground hover:bg-button-hover-color hover:text-button-hover-foreground h-10"
                 size="xxs"
@@ -57,7 +57,7 @@ export default function Home() {
               >
                 Add a new movie
               </Button>
-            </div>
+            </Link>
           </div>
         </div>
       </main>
