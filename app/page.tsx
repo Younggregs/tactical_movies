@@ -83,7 +83,7 @@ export default function Home() {
     <PageLayout fullScreen={false}>
       <main className="flex flex-col bg-background-color h-full min-h-screen justify-between">
         <div className="flex justify-between w-full p-5 pt-10">
-          <div className="flex flex-row">
+          <div className="flex flex-row items-center">
             <h1 className="text-3xl pr-3">My movies</h1>
             <Link className="flex" href="/create">
               <Image
