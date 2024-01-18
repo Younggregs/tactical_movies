@@ -9,6 +9,7 @@ import { useLogin } from "@/hooks/useLogin";
 import { useMovies } from "@/hooks/useMovies";
 import Link from "next/link";
 import { PageLayout } from "@/components/shared/page-layout";
+import LoadingSpinner from "@/components/shared/loading-spinner";
 
 export default function Home() {
   const router = useRouter();
@@ -20,7 +21,7 @@ export default function Home() {
   const [limit, setLimit] = useState(8);
 
   const { status } = useLogin();
-  const { movies } = useMovies({
+  const { movies, isLoading } = useMovies({
     page,
     limit,
   });
@@ -38,6 +39,20 @@ export default function Home() {
     jsCookie.remove("token");
     router.push("/login");
   };
+
+  if (isLoading) {
+    return (
+      <main className="flex flex-col bg-background-color h-full h-screen justify-between">
+        <div className="flex h-full flex-col items-center justify-center p-10">
+          <div className="flex flex-col justify-center items-center">
+            <div>
+              <LoadingSpinner />
+            </div>
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   if (movies.data.length === 0) {
     return (
