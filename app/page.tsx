@@ -85,7 +85,7 @@ export default function Home() {
         <div className="flex justify-between w-full p-5 pt-10">
           <div className="flex flex-row">
             <h1 className="text-3xl pr-3">My movies</h1>
-            <Link className="flex d-flex align-items-end" href="/create">
+            <Link className="flex" href="/create">
               <Image
                 src="/images/add-icon.svg"
                 alt="add-icon"
